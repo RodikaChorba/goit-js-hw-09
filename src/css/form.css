@@ -1,0 +1,28 @@
+.feedback-form input {
+  width: 360px;
+  height: 40px;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+}
+.feedback-form input::placeholder {
+  color: #2e2f42;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+#name-output {
+  color: #2e2f42;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+}
+#name-input + h1 {
+  color: #2e2f42;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+}
