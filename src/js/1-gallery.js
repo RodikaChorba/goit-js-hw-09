@@ -1,3 +1,7 @@
+import SimpleLightbox from 'simplelightbox';
+
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -68,15 +72,15 @@ const gallery = document.querySelector('.gallery');
 
 function imageTemplate(imgObj) {
   return `<li class="gallery-item">
-    <a class="gallery-link" href=${imgObj.original} onclick="event.preventDefault()">
-      <img
-        class="gallery-image"
-        src=${imgObj.preview}
-        data-source=${imgObj.original}
-        alt=${imgObj.description}
-         />
-    </a>
-  </li>`;
+	<a class="gallery-link" href="${imgObj.original}">
+		<img 
+			class="gallery-image" 
+			src="${imgObj.preview}" 
+			alt="${imgObj.description}" 
+			/>
+	</a>
+</li>
+`;
 }
 
 function imagesTemplate(arr) {
@@ -86,23 +90,7 @@ function imagesTemplate(arr) {
 const markup = imagesTemplate(images);
 gallery.innerHTML = markup;
 
-gallery.addEventListener('click', onImgClick);
-
-function onImgClick(e) {
-  e.preventDefault();
-
-  if (e.target.nodeName !== 'IMG') {
-    return;
-  }
-
-  const instance = basicLightbox.create(`
-   <img src="${e.target.dataset.source}" width="1112" height="640" />
-   `);
-  instance.show();
-
-  gallery.addEventListener('keydown', e => {
-    if (e.code === 'Escape') {
-      instance.close();
-    }
-  });
-}
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: `alt`,
+  captionDelay: 250,
+});
