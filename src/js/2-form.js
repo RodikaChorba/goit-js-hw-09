@@ -1,3 +1,15 @@
+const savedFormData = localStorage.getItem('feedback-form-state');
+
+if (savedFormData) {
+  const { email, message } = JSON.parse(savedFormData);
+
+  document.querySelector('[name="email"]').value = email;
+  document.querySelector('[name="message"]').value = message;
+
+  formData.email = email;
+  formData.message = message;
+}
+
 const loginForm = document.querySelector('.feedback-form');
 
 let formData = { email: '', message: '' };
