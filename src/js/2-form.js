@@ -1,3 +1,7 @@
+const loginForm = document.querySelector('.feedback-form');
+
+let formData = { email: '', message: '' };
+
 const savedFormData = localStorage.getItem('feedback-form-state');
 
 if (savedFormData) {
@@ -10,10 +14,6 @@ if (savedFormData) {
   formData.message = message;
 }
 
-const loginForm = document.querySelector('.feedback-form');
-
-let formData = { email: '', message: '' };
-
 loginForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
@@ -23,7 +23,7 @@ function handleSubmit(event) {
   const email = elements.email.value.trim();
   const message = elements.message.value.trim();
 
-  const formData = { email, message };
+  formData = { email, message };
 
   console.log(formData);
 
