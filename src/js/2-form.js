@@ -25,23 +25,6 @@ function handleSubmit(event) {
 
   formData = { email, message };
 
-  console.log(formData);
-
-  event.currentTarget.reset();
-}
-
-loginForm.addEventListener(`input`, handleInput);
-function handleInput(event) {
-  const { elements } = event.currentTarget;
-  const email = elements.email.value.trim();
-  const message = elements.message.value.trim();
-  formData = { email, message };
-  console.log(formData);
-  localStorage.setItem(`feedback-form-state`, JSON.stringify(formData));
-}
-
-document.querySelector('.feedback-form').addEventListener('submit', event => {
-  event.preventDefault();
   if (formData.email && formData.message) {
     console.log('Form data:', formData);
     localStorage.removeItem('feedback-form-state');
@@ -52,4 +35,13 @@ document.querySelector('.feedback-form').addEventListener('submit', event => {
   } else {
     alert('Fill please all fields');
   }
-});
+}
+
+loginForm.addEventListener(`input`, handleInput);
+function handleInput(event) {
+  const { elements } = event.currentTarget;
+  const email = elements.email.value.trim();
+  const message = elements.message.value.trim();
+  formData = { email, message };
+  localStorage.setItem(`feedback-form-state`, JSON.stringify(formData));
+}
